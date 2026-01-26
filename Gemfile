@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '3.4.1'
 gem 'image_processing', '~> 1.2'
 gem 'puma',            '5.6.8'
 gem 'rails',           '7.0.4.3'
+gem "bcrypt",          "3.1.18"
 gem 'sassc-rails',     '2.1.2'
 gem 'sprockets-rails', '3.4.2'
 
