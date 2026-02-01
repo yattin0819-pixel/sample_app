@@ -162,3 +162,38 @@ input {
     color: $state-danger-text;
   }
 }
+
+/* ドロップダウンメニューの基本設定 */
+.dropdown-menu {
+  display: none; // 最初は隠す
+}
+
+/* JSで "active" クラスが付いた時に強制的に表示する */
+.active {
+  display: block !important; 
+  position: absolute; // 位置がズレる場合の保険
+  background-color: white; // 背景色がないと透ける場合があるため
+  z-index: 999; 
+}
+
+/* footer */
+
+footer {
+}
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
