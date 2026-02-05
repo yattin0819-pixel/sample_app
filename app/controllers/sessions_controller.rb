@@ -4,13 +4,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
-      # ユーザーログイン後にユーザー情報のページにリダイレクトする
-      reset_session # ログインの直前に必ずこれを書くこと
-      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+      forwarding_url = session[:forwarding_url]
+      reset_session
       log_in @user
-      redirect_to @user
+      session[:session_token] = @user.session_token
+      redirect_to forwarding_url || @user
     else
-      # flash.now を使うのがチュートリアルのポイントです
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new', status: :unprocessable_entity
     end
