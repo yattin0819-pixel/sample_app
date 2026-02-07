@@ -30,8 +30,6 @@ class ActionDispatch::IntegrationTest
                                           password: password,
                                           remember_me: remember_me } }
     # ログイン後にセッション・トークンを同期して、コントローラーのチェックをパスさせる
-    user.reload
-    session[:user_id] = user.id
-    session[:session_token] = user.session_token
+
   end
 end
