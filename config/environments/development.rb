@@ -42,9 +42,9 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  host = 'miniature-succotash-97vjg67r94r729xq-3000.app.github.dev/' # ここをコピペすると失敗します。自分の環境のホストに変えてください。
+  host = 'miniature-succotash-97vjg67r94r729xq-3000.app.github.dev' # ここをコピペすると失敗します。自分の環境のホストに変えてください。
 
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
   config.action_mailer.perform_caching = false
 

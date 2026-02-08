@@ -92,14 +92,21 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://sample-app-yatsuchin.onrender.com'
-  config.action_mailer.default_url_options = { host: host }
+
+  # ホスト名を一度変数に入れておくと、下の設定でも使い回せて便利です
+  app_host = 'sample-app-yatsuchin.onrender.com'
+
+  # メールのリンクで使用する設定
+  config.action_mailer.default_url_options = { host: app_host, protocol: 'https' }
+
+  # Mailgun（SMTP）の設定
   ActionMailer::Base.smtp_settings = {
-    port: 2525,
+    port: 587, # Mailgunは2525も使えますが、587が一般的です
     address: 'smtp.mailgun.org',
     user_name: ENV['MAILGUN_SMTP_LOGIN'],
     password: ENV['MAILGUN_SMTP_PASSWORD'],
-    domain: host,
-    authentication: :plain
+    domain: app_host,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end

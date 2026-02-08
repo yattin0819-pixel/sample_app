@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'bcrypt', '3.1.18'
+gem 'bigdecimal'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
